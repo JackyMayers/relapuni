@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório de Punição</title>
+<link rel="icon" href="https://i.postimg.cc/MG7qzW4x/emote.png" type="image/x-icon">
+<style>
+body{font-family:Arial,sans-serif;padding:20px;background-color:#181818;color:#f9f9f9;transition:background-color .3s ease,color .3s ease}.container{max-width:600px;margin:0 auto;background:#282828;padding:20px;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,.1)}.header{text-align:center;margin-bottom:20px}.footer{text-align:center;margin-top:20px;font-size:.9em;color:#777}.footer img{margin-top:10px}button{display:block;margin:20px auto;padding:10px 20px;background-color:#555;color:#fff;border:none;border-radius:5px;cursor:pointer;transition:background-color .3s ease}button:hover{background-color:#777}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header"><h1>Relatório de Punição</h1></div>
+<form id="punishmentForm">
+<label for="discordId">ID Discord:</label><br><input type="text" id="discordId" name="discordId"><br><br>
+<label for="characterId">ID do Personagem:</label><br><input type="text" id="characterId" name="characterId"><br><br>
+<label for="characterName">Nome do Personagem:</label><br><input type="text" id="characterName" name="characterName"><br><br>
+<label for="realName">Nome Real:</label><br><input type="text" id="realName" name="realName"><br><br>
+<label for="birthDate">Data de Nascimento:</label><br><input type="date" id="birthDate" name="birthDate"><br><br>
+<label for="reason">Motivo:</label><br>
+<select id="reason" name="reason"><option value="">Selecione um motivo</option><option value="Nome inadequado">Nome inadequado</option><option value="Comportamento tóxico">Comportamento tóxico</option><option value="Violação de regras">Violação de regras</option><option value="Outros">Outros</option></select><br><br>
+<label for="punishment">Punição:</label><br>
+<select id="punishment" name="punishment"><option value="">Selecione uma punição</option><option value="AL removida">AL removida</option><option value="Banimento temporário">Banimento temporário</option><option value="Banimento permanente">Banimento permanente</option><option value="Advertência">Advertência</option></select><br><br>
+<button type="button" onclick="generateReport()">Gerar Relatório</button>
+</form>
+<div id="report" style="margin-top:20px;white-space:pre-line;"></div>
+</div>
+<div class="footer"><img src="https://i.postimg.cc/WzSNyqxY/Jacky-Confuso.png" alt="Placeholder Image" width="150"><p>© 2025 - Todos os direitos reservados. Feito com ❤, ajuda de IA e um pouquinho de preguiça por <a href="https://jackymayers.github.io/" target="_blank">Jacky Mayers</a>!</p></div>
+<script>
+function generateReport(){const discordId=document.getElementById('discordId').value;const characterId=document.getElementById('characterId').value;const characterName=document.getElementById('characterName').value;const realName=document.getElementById('realName').value;const birthDate=document.getElementById('birthDate').value;const reason=document.getElementById('reason').value;const punishment=document.getElementById('punishment').value;let reportHtml='';if(characterId){reportHtml+=`ID: ${characterId}\n`;}if(characterName){reportHtml+=`Nome do Personagem: ${characterName}\n`;}if(discordId){reportHtml+=`ID Discord: ${discordId} | <@${discordId}>\n`;}if(realName){reportHtml+=`Nome Real: ${realName}\n`;}if(birthDate){reportHtml+=`Data de Nascimento: ${birthDate}\n`;}if(reason){reportHtml+=`Motivo: ${reason}\n`;}if(punishment){reportHtml+=`Punição: ${punishment}\n`;}if(!reportHtml){reportHtml='Nenhum campo foi preenchido.';}document.getElementById('report').innerHTML=reportHtml;}
+</script>
+</body>
+</html>
