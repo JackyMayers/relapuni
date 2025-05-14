@@ -163,7 +163,7 @@
       const punishment = document.getElementById('punishment').value.trim() === 'Outro' ? document.getElementById('otherPunishment').value.trim() : document.getElementById('punishment').value.trim();
 
       let report = '';
-      if (characterId || characterName) report += `**Id e Nome:** ${characterId || 'N/A'} - ${characterName || 'N/A'}\n`;
+      if (characterId || characterName) report += `**Nome e ID do Personagem:** ${characterId || 'N/A'} - ${characterName || 'N/A'}\n`;
       if (discordId) report += `**ID Discord:** ${discordId} | <@${discordId}>\n`;
       if (realName) report += `**Nome Real:** ${realName}\n`;
       if (birthDate) report += `**Data de Nascimento:** ${birthDate}\n`;
