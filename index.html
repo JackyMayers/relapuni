@@ -1,189 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Relatório de Punição</title>
-<link rel="icon" href="https://i.postimg.cc/MG7qzW4x/emote.png" type="image/x-icon">
-<style>
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #181818;
-  color: #f9f9f9;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  background: #282828;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 0.9em;
-  color: #777;
-}
-.footer img {
-  margin-top: 10px;
-}
-button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #555;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-button:hover {
-  background-color: #777;
-}
-label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
-input, select, textarea {
-  width: 100%;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #444;
-  background-color: #333;
-  color: #f9f9f9;
-}
-.hidden {
-  display: none;
-}
-#report {
-  margin-top: 20px;
-  white-space: pre-line;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punição nome inadequado</title>
+  <link rel="icon" href="https://i.postimg.cc/MG7qzW4x/emote.png" type="image/x-icon">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #121212;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      width: 100%;
+      max-width: 700px;
+      background: #1f1f1f;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      font-size: 2rem;
+      color: #f9f9f9;
+    }
+    label {
+      font-weight: 600;
+      margin-top: 10px;
+      display: block;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #2c2c2c;
+      color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .hidden {
+      display: none;
+    }
+    #report {
+      margin-top: 30px;
+      background: #262626;
+      padding: 20px;
+      border-radius: 8px;
+      white-space: pre-line;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+    .footer img {
+      margin-top: 10px;
+    }
+    a {
+      color: #5dade2;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <div class="header"><h1>Relatório de Punição</h1></div>
-  <form id="punishmentForm">
-    <label for="discordId">ID Discord:</label>
-    <input type="text" id="discordId" name="discordId">
+  <div class="container">
+    <div class="header">
+      <h1>Relatório de Punição</h1>
+    </div>
+    <form id="punishmentForm">
+      <label for="discordId">ID Discord:</label>
+      <input type="text" id="discordId" name="discordId">
 
-    <label for="characterId">ID do Personagem:</label>
-    <input type="text" id="characterId" name="characterId">
+      <label for="characterId">ID do Personagem:</label>
+      <input type="text" id="characterId" name="characterId">
 
-    <label for="characterName">Nome do Personagem:</label>
-    <input type="text" id="characterName" name="characterName">
+      <label for="characterName">Nome do Personagem:</label>
+      <input type="text" id="characterName" name="characterName">
 
-    <label for="realName">Nome Real:</label>
-    <input type="text" id="realName" name="realName">
+      <label for="realName">Nome Real:</label>
+      <input type="text" id="realName" name="realName">
 
-    <label for="birthDate">Data de Nascimento:</label>
-    <input type="date" id="birthDate" name="birthDate">
+      <label for="birthDate">Data de Nascimento:</label>
+      <input type="date" id="birthDate" name="birthDate">
 
-    <label for="reason">Motivo:</label>
-    <select id="reason" name="reason" onchange="toggleOtherReason()">
-      <option value="">Selecione um motivo</option>
-      <option value="Nome inadequado">Nome inadequado</option>
-      <option value="Comportamento tóxico">Comportamento tóxico</option>
-      <option value="Violação de regras">Violação de regras</option>
-      <option value="Outro">Outro</option>
-    </select>
-    <input type="text" id="otherReason" class="hidden" placeholder="Especifique o motivo">
+      <label for="reason">Motivo:</label>
+      <select id="reason" name="reason" onchange="toggleOtherReason()">
+        <option value="">Selecione um motivo</option>
+        <option value="Nome inadequado">Nome inadequado</option>
+        <option value="Comportamento tóxico">Comportamento tóxico</option>
+        <option value="Violação de regras">Violação de regras</option>
+        <option value="Outro">Outro</option>
+      </select>
+      <input type="text" id="otherReason" class="hidden" placeholder="Especifique o motivo">
 
-    <label for="punishment">Punição:</label>
-    <select id="punishment" name="punishment" onchange="toggleOtherPunishment()">
-      <option value="">Selecione uma punição</option>
-      <option value="AL removida">AL removida</option>
-      <option value="Banimento temporário">Banimento temporário</option>
-      <option value="Banimento permanente">Banimento permanente</option>
-      <option value="Advertência">Advertência</option>
-      <option value="Outro">Outro</option>
-    </select>
-    <input type="text" id="otherPunishment" class="hidden" placeholder="Especifique a punição">
+      <label for="punishment">Punição:</label>
+      <select id="punishment" name="punishment" onchange="toggleOtherPunishment()">
+        <option value="">Selecione uma punição</option>
+        <option value="AL removida">AL removida</option>
+        <option value="Banimento temporário">Banimento temporário</option>
+        <option value="Banimento permanente">Banimento permanente</option>
+        <option value="Advertência">Advertência</option>
+        <option value="Outro">Outro</option>
+      </select>
+      <input type="text" id="otherPunishment" class="hidden" placeholder="Especifique a punição">
 
-    <button type="button" onclick="generateReport()">Gerar Relatório</button>
-  </form>
-  <div id="report"></div>
-</div>
-<div class="footer">
-  <img src="https://i.postimg.cc/WzSNyqxY/Jacky-Confuso.png" alt="Placeholder Image" width="150">
-  <p>© 2025 - Todos os direitos reservados. Feito com ❤, ajuda de IA e um pouquinho de preguiça por <a href="https://jackymayers.github.io/" target="_blank">Jacky Mayers</a>!</p>
-</div>
-<script>
-function toggleOtherReason() {
-  const reasonSelect = document.getElementById('reason');
-  const otherReasonInput = document.getElementById('otherReason');
-  if (reasonSelect.value === "Outro") {
-    otherReasonInput.classList.remove('hidden');
-  } else {
-    otherReasonInput.classList.add('hidden');
-    otherReasonInput.value = ''; // Limpa o campo
-  }
-}
+      <button type="button" onclick="generateReport()">Gerar Relatório</button>
+    </form>
+    <div id="report"></div>
+  </div>
+  <div class="footer">
+    <img src="https://i.postimg.cc/WzSNyqxY/Jacky-Confuso.png" alt="Imagem" width="150">
+    <p>© 2025 - Todos os direitos reservados. Feito com ❤, ajuda de IA e um pouquinho de preguiça por <a href="https://jackymayers.github.io/" target="_blank">Jacky Mayers</a>!</p>
+  </div>
+  <script>
+    function toggleOtherReason() {
+      const reason = document.getElementById('reason').value;
+      const other = document.getElementById('otherReason');
+      other.classList.toggle('hidden', reason !== 'Outro');
+      if (reason !== 'Outro') other.value = '';
+    }
+    function toggleOtherPunishment() {
+      const punishment = document.getElementById('punishment').value;
+      const other = document.getElementById('otherPunishment');
+      other.classList.toggle('hidden', punishment !== 'Outro');
+      if (punishment !== 'Outro') other.value = '';
+    }
+    function generateReport() {
+      const discordId = document.getElementById('discordId').value.trim();
+      const characterId = document.getElementById('characterId').value.trim();
+      const characterName = document.getElementById('characterName').value.trim();
+      const realName = document.getElementById('realName').value.trim();
+      const birthDate = document.getElementById('birthDate').value.trim();
+      const reason = document.getElementById('reason').value.trim() === 'Outro' ? document.getElementById('otherReason').value.trim() : document.getElementById('reason').value.trim();
+      const punishment = document.getElementById('punishment').value.trim() === 'Outro' ? document.getElementById('otherPunishment').value.trim() : document.getElementById('punishment').value.trim();
 
-function toggleOtherPunishment() {
-  const punishmentSelect = document.getElementById('punishment');
-  const otherPunishmentInput = document.getElementById('otherPunishment');
-  if (punishmentSelect.value === "Outro") {
-    otherPunishmentInput.classList.remove('hidden');
-  } else {
-    otherPunishmentInput.classList.add('hidden');
-    otherPunishmentInput.value = ''; // Limpa o campo
-  }
-}
+      let report = '';
+      if (characterId || characterName) report += `**Id e Nome:** ${characterId || 'N/A'} - ${characterName || 'N/A'}\n`;
+      if (discordId) report += `**ID Discord:** ${discordId} | <@${discordId}>\n`;
+      if (realName) report += `**Nome Real:** ${realName}\n`;
+      if (birthDate) report += `**Data de Nascimento:** ${birthDate}\n`;
+      if (reason) report += `**Motivo:** ${reason}\n`;
+      if (punishment) report += `**Punição:** ${punishment}\n`;
 
-function generateReport() {
-  const discordId = document.getElementById('discordId').value.trim();
-  const characterId = document.getElementById('characterId').value.trim();
-  const characterName = document.getElementById('characterName').value.trim();
-  const realName = document.getElementById('realName').value.trim();
-  const birthDate = document.getElementById('birthDate').value.trim();
-  const reasonSelect = document.getElementById('reason').value.trim();
-  const otherReason = document.getElementById('otherReason').value.trim();
-  const punishmentSelect = document.getElementById('punishment').value.trim();
-  const otherPunishment = document.getElementById('otherPunishment').value.trim();
+      if (reason === "Nome inadequado") {
+        report += `\nBoa Noite! Sua Allowlist está sendo removida pelo seguinte motivo: (Nome inadequado). Durante o alinhamento, é informado que o nome deve ser registrável em cartório. Nomes com duplo sentido, apelidos, diminutivos (como Joãozinho, Paulinha), nomes inventados ou com símbolos, repetições de letras ou números fora do padrão não são permitidos. Exemplo de um nome correto com as iniciais maiusculas (ex: João Silva). Lembrando que o nome deve conter UM nome e até TRÊS sobrenomes. Caso deseje retornar ao servidor, será necessário refazer o processo de Allowlist com um nome válido.\n\nAtenciosamente,\nEquipe de Allowlist – Suporte CPX.XP!`
+      }
 
-  const reason = reasonSelect === "Outro" ? otherReason : reasonSelect;
-  const punishment = punishmentSelect === "Outro" ? otherPunishment : punishmentSelect;
-
-  let reportHtml = '';
-
-  if (characterId || characterName) {
-    reportHtml += `**Id e Nome:** ${characterId || "N/A"} - ${characterName || "N/A"}\n`;
-  }
-  if (discordId) {
-    reportHtml += `**ID Discord:** ${discordId} | <@${discordId}>\n`;
-  }
-  if (realName) {
-    reportHtml += `**Nome Real:** ${realName}\n`;
-  }
-  if (birthDate) {
-    reportHtml += `**Data de Nascimento:** ${birthDate}\n`;
-  }
-  if (reason) {
-    reportHtml += `**Motivo:** ${reason}\n`;
-  }
-  if (punishment) {
-    reportHtml += `**Punição:** ${punishment}\n`;
-  }
-
-  if (!reportHtml) {
-    reportHtml = '**Nenhum campo foi preenchido.**';
-  }
-
-  document.getElementById('report').innerHTML = reportHtml;
-}
-</script>
+      document.getElementById('report').textContent = report || '**Nenhum campo foi preenchido.**';
+    }
+  </script>
 </body>
 </html>
