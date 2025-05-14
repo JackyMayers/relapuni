@@ -126,7 +126,7 @@
         <option value="">Selecione uma punição</option>
         <option value="AL removida">AL removida</option>
         <option value="Banimento temporário">Banimento temporário</option>
-        <option value="Banimento permanente">Banimento permanente</option>
+        <option value="Banimento permanente">Banimento indeterminado</option>
         <option value="Advertência">Advertência</option>
         <option value="Outro">Outro</option>
       </select>
@@ -171,7 +171,9 @@
       if (punishment) report += `**Punição:** ${punishment}\n`;
 
       if (reason === "Nome inadequado") {
-        report += `\nBoa Noite! Sua Allowlist está sendo removida pelo seguinte motivo: (Nome inadequado). Durante o alinhamento, é informado que o nome deve ser registrável em cartório. Nomes com duplo sentido, apelidos, diminutivos (como Joãozinho, Paulinha), nomes inventados ou com símbolos, repetições de letras ou números fora do padrão não são permitidos. Exemplo de um nome correto com as iniciais maiusculas (ex: João Silva). Lembrando que o nome deve conter UM nome e até TRÊS sobrenomes. Caso deseje retornar ao servidor, será necessário refazer o processo de Allowlist com um nome válido.\n\nAtenciosamente,\nEquipe de Allowlist – Suporte CPX.XP!`
+        report += `\nBoa Noite! Sua Allowlist está sendo removida pelo seguinte motivo: (Nome inadequado). Durante o alinhamento, é informado que o nome deve ser registrável em cartório. Nomes com duplo sentido, apelidos, diminutivos (como Joãozinho, Paulinha), nomes inventados ou com símbolos, repetições de letras ou números fora do padrão não são permitidos. Exemplo de um nome correto com as iniciais maiúsculas (ex: João Silva). Lembrando que o nome deve conter UM nome e até TRÊS sobrenomes. Caso deseje retornar ao servidor, será necessário refazer o processo de Allowlist com um nome válido.\n\nAtenciosamente,\nEquipe de Allowlist – Suporte CPX.XP!`;
+
+        report += `\n\n${discordId} | <@${discordId}> - ${characterId}   ${characterName}\n**Status:** Remoção de AL - Nome inadequado.`;
       }
 
       document.getElementById('report').textContent = report || '**Nenhum campo foi preenchido.**';
