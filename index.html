@@ -226,13 +226,10 @@
       </div>
       <label for="discordId">ID Discord:</label>
       <input type="text" id="discordId" name="discordId" placeholder="Ex: 123456789012345678">
-
       <label for="characterId">ID do Personagem:</label>
       <input type="text" id="characterId" name="characterId" placeholder="Ex: 9876">
-
       <label for="characterName">Nome do Personagem:</label>
       <input type="text" id="characterName" name="characterName" placeholder="Ex: João Silva">
-
       <button type="submit">Gerar Relatório</button>
     </form>
     <section class="painel-results">
@@ -283,20 +280,15 @@
 
       const saudacao = getSaudacao(); // Pega a saudação dinâmica
 
-      // Info block
-      let info = `**ID Discord:** ${discordId} | <@${discordId}>
-**ID do Personagem:** ${characterId}
-**Nome do Personagem:** ${characterName}
-**Motivo:** Nome inadequado
-**Punição:** Remoção de AL`;
+      // Info block - Ajustado para exibir "ID e Nome do Personagem:" com ID e Nome na mesma linha.
+      let info = `**ID Discord:** ${discordId} | <@${discordId}>\n**ID e Nome do Personagem:** ${characterId} - ${characterName}\n**Motivo:** Nome inadequado\n**Punição:** Remoção de AL`;
 
       // Mensagem ID Discord (a saudação não se aplica a este bloco, pois é um resumo de ID)
       let idmsg = `${discordId} | <@${discordId}> - ${characterId} ${characterName} - Remoção de AL - Nome inadequado.`;
 
       // Mensagem block (longa)
-      let msg = `${saudacao}! Sua Allowlist está sendo removida pelo seguinte motivo: (Nome inadequado). Durante o alinhamento, é informado que o nome deve ser registrável em cartório. Nomes com duplo sentido, apelidos, diminutivos (como Joãozinho, Paulinha), nomes inventados ou com símbolos, repetições de letras ou números fora do padrão não são permitidos. Exemplo de um nome correto com as iniciais maiúsculas (ex: João Silva). Lembrando que o nome deve conter UM nome e até TRÊS sobrenomes. Caso deseje retornar ao servidor, será necessário refazer o processo de Allowlist com um nome válido.
-Atenciosamente, Equipe de Allowlist – Suporte CPX.XP!`;
-
+      let msg = `${saudacao}! Sua Allowlist está sendo removida pelo seguinte motivo: (Nome inadequado). Durante o alinhamento, é informado que o nome deve ser registrável em cartório. Nomes com duplo sentido, apelidos, diminutivos (como Joãozinho, Paulinha), nomes inventados ou com símbolos, repetições de letras ou números fora do padrão não são permitidos. Exemplo de um nome correto com as iniciais maiúsculas (ex: João Silva). Lembrando que o nome deve conter UM nome e até TRÊS sobrenomes. Caso deseje retornar ao servidor, será necessário refazer o processo de Allowlist com um nome válido.Atenciosamente, Equipe de Allowlist – Suporte CPX.XP!`;
+      
       document.getElementById("infoBlock").textContent = info;
       document.getElementById("idMsgBlock").textContent = idmsg;
       document.getElementById("msgBlock").textContent = msg;
